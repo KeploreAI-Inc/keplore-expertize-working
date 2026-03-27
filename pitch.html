@@ -46,6 +46,22 @@
     .nav-links { display: flex; gap: 32px; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
+    .lang-toggle {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      margin-left: 24px;
+      font-family: inherit;
+    }
+    .lang-toggle:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
 
     /* SECTIONS */
     section { padding: 100px 40px; max-width: 960px; margin: 0 auto; }
@@ -283,33 +299,34 @@
 <nav>
   <div class="nav-logo">Ke<span>plore</span></div>
   <div class="nav-links">
-    <a href="#problem">Problem</a>
-    <a href="#why-not-scaling">Why AI Fails</a>
-    <a href="#data-company">Data Company</a>
-    <a href="#vs-scaleai">vs. Scale AI</a>
-    <a href="#phases">Business Model</a>
+    <a href="#problem" id="i18n-nav-problem">Problem</a>
+    <a href="#why-not-scaling" id="i18n-nav-why">Why AI Fails</a>
+    <a href="#data-company" id="i18n-nav-data">Data Company</a>
+    <a href="#vs-scaleai" id="i18n-nav-vs">vs. Scale AI</a>
+    <a href="#phases" id="i18n-nav-phases">Business Model</a>
   </div>
+  <button class="lang-toggle" id="lang-toggle-btn" onclick="toggleLang()">中文</button>
 </nav>
 
 <!-- HERO -->
 <div style="padding: 0 40px;">
   <div class="hero">
-    <div class="hero-eyebrow">Keplore Expertize</div>
-    <h1>AI that <span class="highlight">does</span> industrial work.<br>Not just talks about it.</h1>
-    <p class="hero-sub">
+    <div class="hero-eyebrow" id="i18n-hero-eyebrow">Keplore Expertize</div>
+    <h1 id="i18n-hero-h1">AI that <span class="highlight">does</span> industrial work.<br>Not just talks about it.</h1>
+    <p class="hero-sub" id="i18n-hero-sub">
       The shift is underway: from AI as assistant to AI as executor. Industrial companies
       need agents that can build systems, deploy models, and integrate with hardware —
       not just answer questions or generate reports.
     </p>
     <div class="shift-box">
       <div class="shift-item old">
-        <div class="label">Before</div>
-        <div class="value">AI assists<br>Human executes</div>
+        <div class="label" id="i18n-shift-old-label">Before</div>
+        <div class="value" id="i18n-shift-old-value">AI assists<br>Human executes</div>
       </div>
       <div class="shift-arrow">→</div>
       <div class="shift-item new">
-        <div class="label">Now</div>
-        <div class="value">AI executes<br>Human oversees</div>
+        <div class="label" id="i18n-shift-new-label">Now</div>
+        <div class="value" id="i18n-shift-new-value">AI executes<br>Human oversees</div>
       </div>
     </div>
   </div>
@@ -319,41 +336,41 @@
 
 <!-- PROBLEM: LIGHT VS HEAVY -->
 <section id="problem">
-  <span class="section-label">The Problem</span>
-  <h2>The light tasks are <span class="accent">already solved.</span><br>The heavy ones aren't.</h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-problem">The Problem</span>
+  <h2 id="i18n-problem-h2">The light tasks are <span class="accent">already solved.</span><br>The heavy ones aren't.</h2>
+  <p class="section-intro" id="i18n-problem-intro">
     Industrial companies have tools for analysis, diagnosis, and workflow automation.
     Those are not the bottleneck. The bottleneck is execution — building and deploying
     solutions that actually run on real hardware.
   </p>
   <div class="task-grid">
     <div class="task-card light">
-      <span class="tag">Light Tasks — Solved</span>
-      <h3>Information Processing</h3>
-      <p>What Aitomatic, Snowflake, and most "enterprise AI" companies do. Valuable. Not the core work.</p>
+      <span class="tag" id="i18n-light-tag">Light Tasks — Solved</span>
+      <h3 id="i18n-light-h3">Information Processing</h3>
+      <p id="i18n-light-p">What Aitomatic, Snowflake, and most "enterprise AI" companies do. Valuable. Not the core work.</p>
       <ul>
-        <li>Root cause analysis</li>
-        <li>Document review &amp; audit trails</li>
-        <li>Supply chain risk reports</li>
-        <li>Workflow automation</li>
-        <li>IoT data insights</li>
-        <li>Heat exchanger diagnostics</li>
+        <li id="i18n-light-li1">Root cause analysis</li>
+        <li id="i18n-light-li2">Document review &amp; audit trails</li>
+        <li id="i18n-light-li3">Supply chain risk reports</li>
+        <li id="i18n-light-li4">Workflow automation</li>
+        <li id="i18n-light-li5">IoT data insights</li>
+        <li id="i18n-light-li6">Heat exchanger diagnostics</li>
       </ul>
-      <div class="verdict">Output: a report. A recommendation. Text.</div>
+      <div class="verdict" id="i18n-light-verdict">Output: a report. A recommendation. Text.</div>
     </div>
     <div class="task-card heavy">
-      <span class="tag">Heavy Tasks — Unsolved</span>
-      <h3>Execution &amp; Solution Building</h3>
-      <p>The actual deliverable. What industrial engineers spend most of their time on. What Keplore solves.</p>
+      <span class="tag" id="i18n-heavy-tag">Heavy Tasks — Unsolved</span>
+      <h3 id="i18n-heavy-h3">Execution &amp; Solution Building</h3>
+      <p id="i18n-heavy-p">The actual deliverable. What industrial engineers spend most of their time on. What Keplore solves.</p>
       <ul>
-        <li>Build AI vision systems for production lines</li>
-        <li>Deploy &amp; integrate with hardware APIs</li>
-        <li>Calibrate against real performance signals</li>
-        <li>Configure computing environments</li>
-        <li>Validate &amp; maintain in production</li>
-        <li>Adapt models to new equipment</li>
+        <li id="i18n-heavy-li1">Build AI vision systems for production lines</li>
+        <li id="i18n-heavy-li2">Deploy &amp; integrate with hardware APIs</li>
+        <li id="i18n-heavy-li3">Calibrate against real performance signals</li>
+        <li id="i18n-heavy-li4">Configure computing environments</li>
+        <li id="i18n-heavy-li5">Validate &amp; maintain in production</li>
+        <li id="i18n-heavy-li6">Adapt models to new equipment</li>
       </ul>
-      <div class="verdict">Output: a working system. Running on the machine.</div>
+      <div class="verdict" id="i18n-heavy-verdict">Output: a working system. Running on the machine.</div>
     </div>
   </div>
 </section>
@@ -362,24 +379,24 @@
 
 <!-- WHY SCALING DOESN'T WORK -->
 <section id="why-not-scaling">
-  <span class="section-label">Why Generic AI Fails</span>
-  <h2>Scaling law is <span class="accent">structurally blocked</span><br>in industrial domains.</h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-why">Why Generic AI Fails</span>
+  <h2 id="i18n-why-h2">Scaling law is <span class="accent">structurally blocked</span><br>in industrial domains.</h2>
+  <p class="section-intro" id="i18n-why-intro">
     The obvious solution — train models on more industrial data — doesn't work.
     Four reasons, the first being the most fundamental.
   </p>
   <div class="reasons-grid">
     <div class="reason-card primary">
-      <div class="reason-num">Reason 01 — Most Fundamental</div>
-      <h3>Models learn patterns. Industrial tasks require principles.</h3>
-      <p>
+      <div class="reason-num" id="i18n-reason01-num">Reason 01 — Most Fundamental</div>
+      <h3 id="i18n-reason01-h3">Models learn patterns. Industrial tasks require principles.</h3>
+      <p id="i18n-reason01-p">
         Large models abstract repeat patterns from data — whether text or images. Pattern learning works
         for language generation, where approximate output is acceptable. It does not work for industrial
         execution, where correctness depends on precision, mathematical rules, and physical laws.
       </p>
       <div class="example-box">
-        <div class="label">Classic failure case</div>
-        <p>Ask a large model: is <strong>1.13</strong> or <strong>1.8</strong> larger? Pattern-trained
+        <div class="label" id="i18n-example-label">Classic failure case</div>
+        <p id="i18n-example-p">Ask a large model: is <strong>1.13</strong> or <strong>1.8</strong> larger? Pattern-trained
         models often answer 1.13 — because "more digits = larger number" dominates over
         actual numerical reasoning. In industrial settings, this failure mode causes miscalibrated
         machines, failed deployments, and safety incidents. More training data gives you more patterns.
@@ -388,8 +405,8 @@
     </div>
     <div class="reason-card">
       <div class="reason-num">Reason 02</div>
-      <h3>Not enough industrial data exists.</h3>
-      <p>
+      <h3 id="i18n-reason02-h3">Not enough industrial data exists.</h3>
+      <p id="i18n-reason02-p">
         Calibration parameters, PLC integration quirks, factory safety protocols —
         none of this is in any public training corpus. Collecting it is years of work
         per customer, per domain.
@@ -397,8 +414,8 @@
     </div>
     <div class="reason-card">
       <div class="reason-num">Reason 03</div>
-      <h3>The data types are wrong.</h3>
-      <p>
+      <h3 id="i18n-reason03-h3">The data types are wrong.</h3>
+      <p id="i18n-reason03-p">
         Industrial expertise lives in video demos, physical procedures, hardware
         configuration, and proprietary business logic. Text-based training cannot
         capture the form in which this knowledge actually exists.
@@ -406,8 +423,8 @@
     </div>
     <div class="reason-card">
       <div class="reason-num">Reason 04</div>
-      <h3>Per-customer training is an operational nightmare.</h3>
-      <p>
+      <h3 id="i18n-reason04-h3">Per-customer training is an operational nightmare.</h3>
+      <p id="i18n-reason04-p">
         Fine-tuning a model on proprietary data per customer — then managing drift,
         retraining on updates, maintaining per-customer versions — is prohibitively
         expensive and slow.
@@ -420,28 +437,28 @@
 
 <!-- DATA COMPANY -->
 <section id="data-company">
-  <span class="section-label">Our Approach</span>
-  <h2>Keplore is a <span class="accent">data company.</span><br>The data is executable.</h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-data">Our Approach</span>
+  <h2 id="i18n-data-h2">Keplore is a <span class="accent">data company.</span><br>The data is executable.</h2>
+  <p class="section-intro" id="i18n-data-intro">
     Skills are not documents. They are structured, expert-verified, executable packages —
     code that runs, calibration data that gets applied, domain instructions that guide
     the agent. The agent doesn't look up the procedure. It runs it.
   </p>
 
   <div class="data-hero">
-    <h3>Skills = Executable Expert Knowledge</h3>
-    <p>
+    <h3 id="i18n-datahero-h3">Skills = Executable Expert Knowledge</h3>
+    <p id="i18n-datahero-p">
       Previous approaches built bigger dictionaries. Keplore makes agents that can
       actually work — using expertise knowledge as executable infrastructure, not as
       reference material.
     </p>
     <div style="display: flex; justify-content: center; gap: 32px; margin-top: 24px; flex-wrap: wrap;">
       <div style="text-align: center;">
-        <div style="font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Each skill contains</div>
+        <div style="font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;" id="i18n-skill-contains-label">Each skill contains</div>
         <div style="display: flex; gap: 12px;">
-          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">SKILL.md<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;">Interface &amp; instructions</span></div>
-          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">scripts/<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;">Executable code</span></div>
-          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">data/<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;">Calibration &amp; config</span></div>
+          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">SKILL.md<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;" id="i18n-skill-md-sub">Interface &amp; instructions</span></div>
+          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">scripts/<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;" id="i18n-scripts-sub">Executable code</span></div>
+          <div style="background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: 600;">data/<br><span style="font-size: 12px; color: var(--muted); font-weight: 400;" id="i18n-data-sub">Calibration &amp; config</span></div>
         </div>
       </div>
     </div>
@@ -450,27 +467,27 @@
   <div class="flywheel" style="margin-top: 48px;">
     <div class="flywheel-step">
       <div class="icon">🏭</div>
-      <div class="text">Technical engineers<br>enter factories</div>
+      <div class="text" id="i18n-fly1">Technical engineers<br>enter factories</div>
     </div>
     <div class="flywheel-arrow">→</div>
     <div class="flywheel-step">
       <div class="icon">🧱</div>
-      <div class="text">Skills built &amp;<br>validated on real equipment</div>
+      <div class="text" id="i18n-fly2">Skills built &amp;<br>validated on real equipment</div>
     </div>
     <div class="flywheel-arrow">→</div>
     <div class="flywheel-step">
       <div class="icon">⚡</div>
-      <div class="text">Agents invoke skills<br>to do real work</div>
+      <div class="text" id="i18n-fly3">Agents invoke skills<br>to do real work</div>
     </div>
     <div class="flywheel-arrow">→</div>
     <div class="flywheel-step">
       <div class="icon">📈</div>
-      <div class="text">Usage validates skills<br>library appreciates</div>
+      <div class="text" id="i18n-fly4">Usage validates skills<br>library appreciates</div>
     </div>
     <div class="flywheel-arrow">→</div>
     <div class="flywheel-step">
       <div class="icon">🔄</div>
-      <div class="text">AI accelerates<br>next skill build</div>
+      <div class="text" id="i18n-fly5">AI accelerates<br>next skill build</div>
     </div>
   </div>
 </section>
@@ -479,9 +496,9 @@
 
 <!-- VS SCALE AI -->
 <section id="vs-scaleai">
-  <span class="section-label">Competitive Advantage</span>
-  <h2>Like Scale AI —<br>but <span class="accent">fundamentally better.</span></h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-vs">Competitive Advantage</span>
+  <h2 id="i18n-vs-h2">Like Scale AI —<br>but <span class="accent">fundamentally better.</span></h2>
+  <p class="section-intro" id="i18n-vs-intro">
     Scale AI built a business packaging data for model training. Keplore packages
     executable skills for agent inference. Same insight, one layer up — with a
     much better business model.
@@ -497,51 +514,51 @@
     </thead>
     <tbody>
       <tr>
-        <td>Product</td>
-        <td class="col-scale">Labeled training datasets</td>
-        <td class="col-keplore"><strong>Executable skill packages</strong> (code + data + interface)</td>
+        <td id="i18n-row-product">Product</td>
+        <td class="col-scale" id="i18n-row-product-scale">Labeled training datasets</td>
+        <td class="col-keplore" id="i18n-row-product-keplore"><strong>Executable skill packages</strong> (code + data + interface)</td>
       </tr>
       <tr>
-        <td>Used for</td>
-        <td class="col-scale">Training model weights</td>
-        <td class="col-keplore"><strong>Agent inference</strong> — invoked at runtime, every time</td>
+        <td id="i18n-row-usedfor">Used for</td>
+        <td class="col-scale" id="i18n-row-usedfor-scale">Training model weights</td>
+        <td class="col-keplore" id="i18n-row-usedfor-keplore"><strong>Agent inference</strong> — invoked at runtime, every time</td>
       </tr>
       <tr>
-        <td>Consumption</td>
-        <td class="col-scale">One-time — data trains a model, then it's done</td>
-        <td class="col-keplore"><strong>Persistent</strong> — each skill invocation delivers value <span class="win-badge">Better</span></td>
+        <td id="i18n-row-consumption">Consumption</td>
+        <td class="col-scale" id="i18n-row-consumption-scale">One-time — data trains a model, then it's done</td>
+        <td class="col-keplore" id="i18n-row-consumption-keplore"><strong>Persistent</strong> — each skill invocation delivers value <span class="win-badge" id="i18n-win1">Better</span></td>
       </tr>
       <tr>
-        <td>Value over time</td>
-        <td class="col-scale">Static — labeled data doesn't improve after collection</td>
-        <td class="col-keplore"><strong>Appreciates</strong> — skills validated by real production usage get more valuable <span class="win-badge">Better</span></td>
+        <td id="i18n-row-value">Value over time</td>
+        <td class="col-scale" id="i18n-row-value-scale">Static — labeled data doesn't improve after collection</td>
+        <td class="col-keplore" id="i18n-row-value-keplore"><strong>Appreciates</strong> — skills validated by real production usage get more valuable <span class="win-badge" id="i18n-win2">Better</span></td>
       </tr>
       <tr>
-        <td>Business model</td>
-        <td class="col-scale">COGS model — sell data, must collect more to sell again</td>
-        <td class="col-keplore"><strong>SaaS model</strong> — build skill once, sell access indefinitely. Near-zero marginal cost. <span class="win-badge">Better</span></td>
+        <td id="i18n-row-biz">Business model</td>
+        <td class="col-scale" id="i18n-row-biz-scale">COGS model — sell data, must collect more to sell again</td>
+        <td class="col-keplore" id="i18n-row-biz-keplore"><strong>SaaS model</strong> — build skill once, sell access indefinitely. Near-zero marginal cost. <span class="win-badge" id="i18n-win3">Better</span></td>
       </tr>
       <tr>
-        <td>Workforce</td>
-        <td class="col-scale">Large-scale click-labor for annotation</td>
-        <td class="col-keplore"><strong>Technical engineers</strong> with coding + domain knowledge — compound with experience</td>
+        <td id="i18n-row-workforce">Workforce</td>
+        <td class="col-scale" id="i18n-row-workforce-scale">Large-scale click-labor for annotation</td>
+        <td class="col-keplore" id="i18n-row-workforce-keplore"><strong>Technical engineers</strong> with coding + domain knowledge — compound with experience</td>
       </tr>
       <tr>
-        <td>Self-acceleration</td>
-        <td class="col-scale">No — labeling doesn't make labeling faster</td>
-        <td class="col-keplore"><strong>Yes</strong> — Keplore's own skills accelerate building new skills <span class="win-badge">Better</span></td>
+        <td id="i18n-row-accel">Self-acceleration</td>
+        <td class="col-scale" id="i18n-row-accel-scale">No — labeling doesn't make labeling faster</td>
+        <td class="col-keplore" id="i18n-row-accel-keplore"><strong>Yes</strong> — Keplore's own skills accelerate building new skills <span class="win-badge" id="i18n-win4">Better</span></td>
       </tr>
       <tr>
-        <td>Moat</td>
-        <td class="col-scale">Scale and speed of data collection</td>
-        <td class="col-keplore"><strong>Skills library + production-validated expertise</strong> — impossible to replicate without factory access</td>
+        <td id="i18n-row-moat">Moat</td>
+        <td class="col-scale" id="i18n-row-moat-scale">Scale and speed of data collection</td>
+        <td class="col-keplore" id="i18n-row-moat-keplore"><strong>Skills library + production-validated expertise</strong> — impossible to replicate without factory access</td>
       </tr>
     </tbody>
   </table>
 
   <div style="margin-top: 32px; padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;">
-    <div style="font-size: 13px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">The key insight</div>
-    <p style="font-size: 17px; line-height: 1.7; color: var(--text);">
+    <div style="font-size: 13px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;" id="i18n-insight-label">The key insight</div>
+    <p style="font-size: 17px; line-height: 1.7; color: var(--text);" id="i18n-insight-p">
       Scale AI's training data gets consumed once. Keplore's skills get invoked indefinitely.
       A calibration skill built for a Chinese manufacturer today will be invoked on
       hundreds of machines for years. Every invocation is revenue. Every invocation is
@@ -554,45 +571,45 @@
 
 <!-- BUSINESS PHASES -->
 <section id="phases">
-  <span class="section-label">Business Model</span>
-  <h2>Two phases.<br>One <span class="accent">compounding asset.</span></h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-phases">Business Model</span>
+  <h2 id="i18n-phases-h2">Two phases.<br>One <span class="accent">compounding asset.</span></h2>
+  <p class="section-intro" id="i18n-phases-intro">
     The delivery work and the data business are not in tension.
     Phase 1 funds and builds Phase 2. Every project is an investment in the library.
   </p>
   <div class="phases">
     <div class="phase-card active">
-      <div class="phase-num">Phase 1 — Now</div>
-      <h3>Deliver Solutions</h3>
-      <p>
+      <div class="phase-num" id="i18n-phase1-num">Phase 1 — Now</div>
+      <h3 id="i18n-phase1-h3">Deliver Solutions</h3>
+      <p id="i18n-phase1-p1">
         Work directly with industrial customers to build and deploy AI solutions.
         Charge for delivery — but margin is not the goal. The goal is building a
         validated skills library that compounds.
       </p>
-      <p>
+      <p id="i18n-phase1-p2">
         Because Keplore isn't optimizing for delivery margin, it can take engagements
         competitors can't afford to, move into verticals others won't enter, and reuse
         skills from previous projects to move faster than anyone starting from scratch.
       </p>
-      <div class="phase-insight">
-        Current customers: China manufacturer (magnetic defect detection), Geely EV R&D, Idaho robotics SI.
+      <div class="phase-insight" id="i18n-phase1-insight">
+        Current customers: China manufacturer (magnetic defect detection), Geely EV R&amp;D, Idaho robotics SI.
       </div>
     </div>
     <div class="phase-card">
-      <div class="phase-num">Phase 2 — Library Monetization</div>
-      <h3>Sell the Skills</h3>
-      <p>
+      <div class="phase-num" id="i18n-phase2-num">Phase 2 — Library Monetization</div>
+      <h3 id="i18n-phase2-h3">Sell the Skills</h3>
+      <p id="i18n-phase2-p1">
         Once the library has depth and breadth, sell access — subscription,
         per-skill licensing, or per-domain packages. At this point, the marginal cost
         of serving an additional customer is near zero.
       </p>
-      <p>
+      <p id="i18n-phase2-p2">
         Phase 1 customers funded the asset. Phase 2 is when the business becomes a
         software business. Other AI companies — including light-task platforms like
         Aitomatic — can buy Keplore skills to add execution capability without
         building domain expertise from scratch.
       </p>
-      <div class="phase-insight">
+      <div class="phase-insight" id="i18n-phase2-insight">
         The skills library becomes infrastructure. Keplore becomes the data layer for industrial AI execution.
       </div>
     </div>
@@ -603,41 +620,41 @@
 
 <!-- KEPLER -->
 <section>
-  <span class="section-label">Why "Keplore"</span>
-  <h2>Grounded knowledge<br>makes <span class="accent">reliable predictions.</span></h2>
-  <p class="section-intro">
+  <span class="section-label" id="i18n-section-kepler">Why "Keplore"</span>
+  <h2 id="i18n-kepler-h2">Grounded knowledge<br>makes <span class="accent">reliable predictions.</span></h2>
+  <p class="section-intro" id="i18n-kepler-intro">
     The name is a tribute to Johannes Kepler — who proved that precise observational
     data, not pure reasoning, is what makes scientific laws actually work.
   </p>
   <div class="kepler-grid">
     <div class="kepler-col">
-      <h3>The historical parallel</h3>
-      <p>
+      <h3 id="i18n-kepler-col1-h3">The historical parallel</h3>
+      <p id="i18n-kepler-col1-p1">
         Kepler derived his three laws of planetary motion using precise observations
         collected by Tycho Brahe — who spent decades building sophisticated instruments
         and measuring planetary positions with then-unprecedented accuracy.
       </p>
-      <p>
+      <p id="i18n-kepler-col1-p2">
         Before Kepler, astronomers relied on pure geometric reasoning (Ptolemy's epicycles,
         Copernicus's circles). Logically coherent. Wrong. Because they weren't grounded
         in precise measurement.
       </p>
-      <p>
+      <p id="i18n-kepler-col1-p3">
         Kepler's laws work — can predict where a planet will be — because they were
         derived from real data and constrained by real observations. The data was decisive.
       </p>
     </div>
     <div class="kepler-col">
-      <h3>The Keplore analogy</h3>
+      <h3 id="i18n-kepler-col2-h3">The Keplore analogy</h3>
       <div class="analogy">
-        <div class="row"><span class="k">Tycho Brahe</span><span class="v">Keplore's technical workforce in factories</span></div>
-        <div class="row"><span class="k">Astronomical instruments</span><span class="v">Skill packages (code + data + interface)</span></div>
-        <div class="row"><span class="k">Precise observations</span><span class="v">Expert-verified, production-validated skills</span></div>
-        <div class="row"><span class="k">Pure geometric reasoning</span><span class="v">Generic AI pattern-matching</span></div>
-        <div class="row"><span class="k">Kepler's laws</span><span class="v">Reliable industrial AI execution</span></div>
-        <div class="row"><span class="k">Predicts planetary positions</span><span class="v">Builds systems that work in production</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k1">Tycho Brahe</span><span class="v" id="i18n-analogy-v1">Keplore's technical workforce in factories</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k2">Astronomical instruments</span><span class="v" id="i18n-analogy-v2">Skill packages (code + data + interface)</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k3">Precise observations</span><span class="v" id="i18n-analogy-v3">Expert-verified, production-validated skills</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k4">Pure geometric reasoning</span><span class="v" id="i18n-analogy-v4">Generic AI pattern-matching</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k5">Kepler's laws</span><span class="v" id="i18n-analogy-v5">Reliable industrial AI execution</span></div>
+        <div class="row"><span class="k" id="i18n-analogy-k6">Predicts planetary positions</span><span class="v" id="i18n-analogy-v6">Builds systems that work in production</span></div>
       </div>
-      <p style="margin-top: 16px; font-size: 14px;">
+      <p style="margin-top: 16px; font-size: 14px;" id="i18n-kepler-col2-lastp">
         Generic AI reasoning alone — pattern-matching over public data — produces
         plausible output that cannot be trusted in industrial production.
         Keplore's skills are the grounding that makes the agent reliable.
@@ -647,9 +664,338 @@
 </section>
 
 <footer>
-  <div class="name">Keplore Expertize</div>
-  <p>Industrial AI that executes. Built on skills. Grounded in domain expertise.</p>
+  <div class="name" id="i18n-footer-name">Keplore Expertize</div>
+  <p id="i18n-footer-p">Industrial AI that executes. Built on skills. Grounded in domain expertise.</p>
 </footer>
+
+<script>
+  const STRINGS = {
+    en: {
+      title: "Keplore Expertize — Industrial AI That Works",
+      "lang-toggle-btn": "中文",
+      "i18n-nav-problem": "Problem",
+      "i18n-nav-why": "Why AI Fails",
+      "i18n-nav-data": "Data Company",
+      "i18n-nav-vs": "vs. Scale AI",
+      "i18n-nav-phases": "Business Model",
+      "i18n-hero-eyebrow": "Keplore Expertize",
+      "i18n-hero-h1": "AI that <span class=\"highlight\">does</span> industrial work.<br>Not just talks about it.",
+      "i18n-hero-sub": "The shift is underway: from AI as assistant to AI as executor. Industrial companies need agents that can build systems, deploy models, and integrate with hardware — not just answer questions or generate reports.",
+      "i18n-shift-old-label": "Before",
+      "i18n-shift-old-value": "AI assists<br>Human executes",
+      "i18n-shift-new-label": "Now",
+      "i18n-shift-new-value": "AI executes<br>Human oversees",
+      "i18n-section-problem": "The Problem",
+      "i18n-problem-h2": "The light tasks are <span class=\"accent\">already solved.</span><br>The heavy ones aren't.",
+      "i18n-problem-intro": "Industrial companies have tools for analysis, diagnosis, and workflow automation. Those are not the bottleneck. The bottleneck is execution — building and deploying solutions that actually run on real hardware.",
+      "i18n-light-tag": "Light Tasks — Solved",
+      "i18n-light-h3": "Information Processing",
+      "i18n-light-p": "What Aitomatic, Snowflake, and most \"enterprise AI\" companies do. Valuable. Not the core work.",
+      "i18n-light-li1": "Root cause analysis",
+      "i18n-light-li2": "Document review &amp; audit trails",
+      "i18n-light-li3": "Supply chain risk reports",
+      "i18n-light-li4": "Workflow automation",
+      "i18n-light-li5": "IoT data insights",
+      "i18n-light-li6": "Heat exchanger diagnostics",
+      "i18n-light-verdict": "Output: a report. A recommendation. Text.",
+      "i18n-heavy-tag": "Heavy Tasks — Unsolved",
+      "i18n-heavy-h3": "Execution &amp; Solution Building",
+      "i18n-heavy-p": "The actual deliverable. What industrial engineers spend most of their time on. What Keplore solves.",
+      "i18n-heavy-li1": "Build AI vision systems for production lines",
+      "i18n-heavy-li2": "Deploy &amp; integrate with hardware APIs",
+      "i18n-heavy-li3": "Calibrate against real performance signals",
+      "i18n-heavy-li4": "Configure computing environments",
+      "i18n-heavy-li5": "Validate &amp; maintain in production",
+      "i18n-heavy-li6": "Adapt models to new equipment",
+      "i18n-heavy-verdict": "Output: a working system. Running on the machine.",
+      "i18n-section-why": "Why Generic AI Fails",
+      "i18n-why-h2": "Scaling law is <span class=\"accent\">structurally blocked</span><br>in industrial domains.",
+      "i18n-why-intro": "The obvious solution — train models on more industrial data — doesn't work. Four reasons, the first being the most fundamental.",
+      "i18n-reason01-num": "Reason 01 — Most Fundamental",
+      "i18n-reason01-h3": "Models learn patterns. Industrial tasks require principles.",
+      "i18n-reason01-p": "Large models abstract repeat patterns from data — whether text or images. Pattern learning works for language generation, where approximate output is acceptable. It does not work for industrial execution, where correctness depends on precision, mathematical rules, and physical laws.",
+      "i18n-example-label": "Classic failure case",
+      "i18n-example-p": "Ask a large model: is <strong>1.13</strong> or <strong>1.8</strong> larger? Pattern-trained models often answer 1.13 — because \"more digits = larger number\" dominates over actual numerical reasoning. In industrial settings, this failure mode causes miscalibrated machines, failed deployments, and safety incidents. More training data gives you more patterns. It does not give you principles.",
+      "i18n-reason02-h3": "Not enough industrial data exists.",
+      "i18n-reason02-p": "Calibration parameters, PLC integration quirks, factory safety protocols — none of this is in any public training corpus. Collecting it is years of work per customer, per domain.",
+      "i18n-reason03-h3": "The data types are wrong.",
+      "i18n-reason03-p": "Industrial expertise lives in video demos, physical procedures, hardware configuration, and proprietary business logic. Text-based training cannot capture the form in which this knowledge actually exists.",
+      "i18n-reason04-h3": "Per-customer training is an operational nightmare.",
+      "i18n-reason04-p": "Fine-tuning a model on proprietary data per customer — then managing drift, retraining on updates, maintaining per-customer versions — is prohibitively expensive and slow.",
+      "i18n-section-data": "Our Approach",
+      "i18n-data-h2": "Keplore is a <span class=\"accent\">data company.</span><br>The data is executable.",
+      "i18n-data-intro": "Skills are not documents. They are structured, expert-verified, executable packages — code that runs, calibration data that gets applied, domain instructions that guide the agent. The agent doesn't look up the procedure. It runs it.",
+      "i18n-datahero-h3": "Skills = Executable Expert Knowledge",
+      "i18n-datahero-p": "Previous approaches built bigger dictionaries. Keplore makes agents that can actually work — using expertise knowledge as executable infrastructure, not as reference material.",
+      "i18n-skill-contains-label": "Each skill contains",
+      "i18n-skill-md-sub": "Interface &amp; instructions",
+      "i18n-scripts-sub": "Executable code",
+      "i18n-data-sub": "Calibration &amp; config",
+      "i18n-fly1": "Technical engineers<br>enter factories",
+      "i18n-fly2": "Skills built &amp;<br>validated on real equipment",
+      "i18n-fly3": "Agents invoke skills<br>to do real work",
+      "i18n-fly4": "Usage validates skills<br>library appreciates",
+      "i18n-fly5": "AI accelerates<br>next skill build",
+      "i18n-section-vs": "Competitive Advantage",
+      "i18n-vs-h2": "Like Scale AI —<br>but <span class=\"accent\">fundamentally better.</span>",
+      "i18n-vs-intro": "Scale AI built a business packaging data for model training. Keplore packages executable skills for agent inference. Same insight, one layer up — with a much better business model.",
+      "i18n-row-product": "Product",
+      "i18n-row-product-scale": "Labeled training datasets",
+      "i18n-row-product-keplore": "<strong>Executable skill packages</strong> (code + data + interface)",
+      "i18n-row-usedfor": "Used for",
+      "i18n-row-usedfor-scale": "Training model weights",
+      "i18n-row-usedfor-keplore": "<strong>Agent inference</strong> — invoked at runtime, every time",
+      "i18n-row-consumption": "Consumption",
+      "i18n-row-consumption-scale": "One-time — data trains a model, then it's done",
+      "i18n-row-consumption-keplore": "<strong>Persistent</strong> — each skill invocation delivers value <span class=\"win-badge\" id=\"i18n-win1\">Better</span>",
+      "i18n-row-value": "Value over time",
+      "i18n-row-value-scale": "Static — labeled data doesn't improve after collection",
+      "i18n-row-value-keplore": "<strong>Appreciates</strong> — skills validated by real production usage get more valuable <span class=\"win-badge\" id=\"i18n-win2\">Better</span>",
+      "i18n-row-biz": "Business model",
+      "i18n-row-biz-scale": "COGS model — sell data, must collect more to sell again",
+      "i18n-row-biz-keplore": "<strong>SaaS model</strong> — build skill once, sell access indefinitely. Near-zero marginal cost. <span class=\"win-badge\" id=\"i18n-win3\">Better</span>",
+      "i18n-row-workforce": "Workforce",
+      "i18n-row-workforce-scale": "Large-scale click-labor for annotation",
+      "i18n-row-workforce-keplore": "<strong>Technical engineers</strong> with coding + domain knowledge — compound with experience",
+      "i18n-row-accel": "Self-acceleration",
+      "i18n-row-accel-scale": "No — labeling doesn't make labeling faster",
+      "i18n-row-accel-keplore": "<strong>Yes</strong> — Keplore's own skills accelerate building new skills <span class=\"win-badge\" id=\"i18n-win4\">Better</span>",
+      "i18n-row-moat": "Moat",
+      "i18n-row-moat-scale": "Scale and speed of data collection",
+      "i18n-row-moat-keplore": "<strong>Skills library + production-validated expertise</strong> — impossible to replicate without factory access",
+      "i18n-insight-label": "The key insight",
+      "i18n-insight-p": "Scale AI's training data gets consumed once. Keplore's skills get invoked indefinitely. A calibration skill built for a Chinese manufacturer today will be invoked on hundreds of machines for years. Every invocation is revenue. Every invocation is also validation — making the skill more valuable for the next customer.",
+      "i18n-section-phases": "Business Model",
+      "i18n-phases-h2": "Two phases.<br>One <span class=\"accent\">compounding asset.</span>",
+      "i18n-phases-intro": "The delivery work and the data business are not in tension. Phase 1 funds and builds Phase 2. Every project is an investment in the library.",
+      "i18n-phase1-num": "Phase 1 — Now",
+      "i18n-phase1-h3": "Deliver Solutions",
+      "i18n-phase1-p1": "Work directly with industrial customers to build and deploy AI solutions. Charge for delivery — but margin is not the goal. The goal is building a validated skills library that compounds.",
+      "i18n-phase1-p2": "Because Keplore isn't optimizing for delivery margin, it can take engagements competitors can't afford to, move into verticals others won't enter, and reuse skills from previous projects to move faster than anyone starting from scratch.",
+      "i18n-phase1-insight": "Current customers: China manufacturer (magnetic defect detection), Geely EV R&amp;D, Idaho robotics SI.",
+      "i18n-phase2-num": "Phase 2 — Library Monetization",
+      "i18n-phase2-h3": "Sell the Skills",
+      "i18n-phase2-p1": "Once the library has depth and breadth, sell access — subscription, per-skill licensing, or per-domain packages. At this point, the marginal cost of serving an additional customer is near zero.",
+      "i18n-phase2-p2": "Phase 1 customers funded the asset. Phase 2 is when the business becomes a software business. Other AI companies — including light-task platforms like Aitomatic — can buy Keplore skills to add execution capability without building domain expertise from scratch.",
+      "i18n-phase2-insight": "The skills library becomes infrastructure. Keplore becomes the data layer for industrial AI execution.",
+      "i18n-section-kepler": "Why \"Keplore\"",
+      "i18n-kepler-h2": "Grounded knowledge<br>makes <span class=\"accent\">reliable predictions.</span>",
+      "i18n-kepler-intro": "The name is a tribute to Johannes Kepler — who proved that precise observational data, not pure reasoning, is what makes scientific laws actually work.",
+      "i18n-kepler-col1-h3": "The historical parallel",
+      "i18n-kepler-col1-p1": "Kepler derived his three laws of planetary motion using precise observations collected by Tycho Brahe — who spent decades building sophisticated instruments and measuring planetary positions with then-unprecedented accuracy.",
+      "i18n-kepler-col1-p2": "Before Kepler, astronomers relied on pure geometric reasoning (Ptolemy's epicycles, Copernicus's circles). Logically coherent. Wrong. Because they weren't grounded in precise measurement.",
+      "i18n-kepler-col1-p3": "Kepler's laws work — can predict where a planet will be — because they were derived from real data and constrained by real observations. The data was decisive.",
+      "i18n-kepler-col2-h3": "The Keplore analogy",
+      "i18n-analogy-k1": "Tycho Brahe",
+      "i18n-analogy-v1": "Keplore's technical workforce in factories",
+      "i18n-analogy-k2": "Astronomical instruments",
+      "i18n-analogy-v2": "Skill packages (code + data + interface)",
+      "i18n-analogy-k3": "Precise observations",
+      "i18n-analogy-v3": "Expert-verified, production-validated skills",
+      "i18n-analogy-k4": "Pure geometric reasoning",
+      "i18n-analogy-v4": "Generic AI pattern-matching",
+      "i18n-analogy-k5": "Kepler's laws",
+      "i18n-analogy-v5": "Reliable industrial AI execution",
+      "i18n-analogy-k6": "Predicts planetary positions",
+      "i18n-analogy-v6": "Builds systems that work in production",
+      "i18n-kepler-col2-lastp": "Generic AI reasoning alone — pattern-matching over public data — produces plausible output that cannot be trusted in industrial production. Keplore's skills are the grounding that makes the agent reliable.",
+      "i18n-footer-name": "Keplore Expertize",
+      "i18n-footer-p": "Industrial AI that executes. Built on skills. Grounded in domain expertise."
+    },
+    zh: {
+      title: "Keplore Expertize — 真正执行工业任务的AI",
+      "lang-toggle-btn": "English",
+      "i18n-nav-problem": "问题",
+      "i18n-nav-why": "AI为何失败",
+      "i18n-nav-data": "数据公司",
+      "i18n-nav-vs": "对比ScaleAI",
+      "i18n-nav-phases": "商业模式",
+      "i18n-hero-eyebrow": "Keplore Expertize",
+      "i18n-hero-h1": "让AI真正<span class=\"highlight\">执行</span>工业任务。<br>而不只是谈论它。",
+      "i18n-hero-sub": "转变已经到来：AI从助手变为执行者。工业企业需要的是能够构建系统、部署模型、与硬件集成的智能体——而不仅仅是回答问题或生成报告。",
+      "i18n-shift-old-label": "以前",
+      "i18n-shift-old-value": "AI辅助<br>人来执行",
+      "i18n-shift-new-label": "现在",
+      "i18n-shift-new-value": "AI执行<br>人来监督",
+      "i18n-section-problem": "核心问题",
+      "i18n-problem-h2": "轻量任务<span class=\"accent\">已被解决。</span><br>重型任务还没有。",
+      "i18n-problem-intro": "工业企业已经有了分析、诊断和工作流自动化工具。这些不是瓶颈。瓶颈是执行——构建和部署真正能在真实硬件上运行的解决方案。",
+      "i18n-light-tag": "轻量任务 — 已解决",
+      "i18n-light-h3": "信息处理",
+      "i18n-light-p": "Aitomatic、Snowflake等"企业AI"公司所做的事情。有价值，但不是核心工作。",
+      "i18n-light-li1": "根因分析",
+      "i18n-light-li2": "文档审查与审计追踪",
+      "i18n-light-li3": "供应链风险报告",
+      "i18n-light-li4": "工作流自动化",
+      "i18n-light-li5": "物联网数据洞察",
+      "i18n-light-li6": "热交换器诊断",
+      "i18n-light-verdict": "输出：一份报告。一个建议。文字。",
+      "i18n-heavy-tag": "重型任务 — 未解决",
+      "i18n-heavy-h3": "执行与方案构建",
+      "i18n-heavy-p": "真正的交付物。工业工程师大部分时间所做的事。Keplore正在解决的问题。",
+      "i18n-heavy-li1": "为产线构建AI视觉系统",
+      "i18n-heavy-li2": "部署并与硬件API集成",
+      "i18n-heavy-li3": "对照真实性能信号进行校准",
+      "i18n-heavy-li4": "配置计算环境",
+      "i18n-heavy-li5": "在生产中验证和维护",
+      "i18n-heavy-li6": "将模型适配到新设备",
+      "i18n-heavy-verdict": "输出：一个运行中的系统。跑在机器上。",
+      "i18n-section-why": "AI为何失败",
+      "i18n-why-h2": "Scaling Law在工业场景<span class=\"accent\">结构性失效。</span>",
+      "i18n-why-intro": "更多工业数据来训练模型——这个看似显而易见的解决方案行不通。四个原因，第一个最根本。",
+      "i18n-reason01-num": "原因01 — 最根本",
+      "i18n-reason01-h3": "模型学的是重复模式。工业任务需要的是原理。",
+      "i18n-reason01-p": "大模型从数据中抽象重复模式——无论是文本还是图像。模式学习在语言生成中效果很好，因为大致正确是可以接受的。但在工业执行中行不通——这里的正确性依赖于精确性、数学规则和物理定律。",
+      "i18n-example-label": "典型失败案例",
+      "i18n-example-p": "问大模型：<strong>1.13</strong>和<strong>1.8</strong>哪个更大？经过模式训练的模型经常回答1.13——因为"位数更多=数字更大"的模式压过了真正的数值推理。在工业场景中，这种失败模式会导致机器校准错误、部署失败，甚至安全事故。更多训练数据给你更多模式，但给不了你原理。",
+      "i18n-reason02-h3": "工业数据严重匮乏。",
+      "i18n-reason02-p": "校准参数、PLC集成细节、工厂安全规程——这些都不在任何公开训练语料中。为每个客户、每个领域收集这些数据需要数年工作。",
+      "i18n-reason03-h3": "数据类型不对。",
+      "i18n-reason03-p": "工业专业知识存在于视频演示、物理操作规程、硬件特定配置和专有业务逻辑中。仅靠文本训练数据无法捕捉这些知识真正存在的形式。",
+      "i18n-reason04-h3": "按客户训练成本过高、速度过慢。",
+      "i18n-reason04-p": "为每个客户在专有数据上微调模型——然后管理漂移、更新重训练、维护每客户模型版本——是一场运营噩梦。成本和延迟使其对Keplore服务的客户不可行。",
+      "i18n-section-data": "我们的方案",
+      "i18n-data-h2": "Keplore是一家<span class=\"accent\">数据公司。</span><br>这些数据是可执行的。",
+      "i18n-data-intro": "Skills不是文档。它们是结构化的、经专家验证的、可执行的包——可以运行的代码、被应用的校准数据、指导智能体的领域指令。智能体不是查阅规程，而是执行它。",
+      "i18n-datahero-h3": "Skills = 可执行的专家知识",
+      "i18n-datahero-p": "以往的方法是建更大的词典。Keplore让智能体能够真正工作——将专业知识作为可执行基础设施，而不仅仅是参考材料。",
+      "i18n-skill-contains-label": "每个Skill包含",
+      "i18n-skill-md-sub": "接口与指令",
+      "i18n-scripts-sub": "可执行代码",
+      "i18n-data-sub": "校准与配置",
+      "i18n-fly1": "技术工程师<br>进入工厂",
+      "i18n-fly2": "在真实设备上<br>构建并验证Skills",
+      "i18n-fly3": "智能体调用Skills<br>完成真实工作",
+      "i18n-fly4": "使用记录验证Skills<br>库的价值提升",
+      "i18n-fly5": "AI加速<br>下一个Skill构建",
+      "i18n-section-vs": "竞争优势",
+      "i18n-vs-h2": "类似Scale AI——<br>但<span class=\"accent\">本质上更好。</span>",
+      "i18n-vs-intro": "Scale AI通过打包训练数据建立了商业模式。Keplore打包的是供智能体推理调用的可执行Skills。相同的洞察，高出一个层次——商业模式却好得多。",
+      "i18n-row-product": "产品",
+      "i18n-row-product-scale": "标注训练数据集",
+      "i18n-row-product-keplore": "<strong>可执行Skill包</strong>（代码+数据+接口）",
+      "i18n-row-usedfor": "用途",
+      "i18n-row-usedfor-scale": "训练模型权重",
+      "i18n-row-usedfor-keplore": "<strong>智能体推理</strong>——每次运行时调用",
+      "i18n-row-consumption": "消耗方式",
+      "i18n-row-consumption-scale": "一次性——数据训练完模型就用完了",
+      "i18n-row-consumption-keplore": "<strong>持久</strong>——每次Skill调用都产生价值 <span class=\"win-badge\" id=\"i18n-win1\">更好</span>",
+      "i18n-row-value": "随时间的价值",
+      "i18n-row-value-scale": "静态——标注数据收集后不会改善",
+      "i18n-row-value-keplore": "<strong>增值</strong>——经真实生产使用验证的Skills价值更高 <span class=\"win-badge\" id=\"i18n-win2\">更好</span>",
+      "i18n-row-biz": "商业模式",
+      "i18n-row-biz-scale": "COGS模式——卖一次数据，需要继续收集才能继续卖",
+      "i18n-row-biz-keplore": "<strong>SaaS模式</strong>——构建一次，无限期销售访问权。边际成本接近零。 <span class=\"win-badge\" id=\"i18n-win3\">更好</span>",
+      "i18n-row-workforce": "人力",
+      "i18n-row-workforce-scale": "大规模点击劳工做标注",
+      "i18n-row-workforce-keplore": "<strong>有编程和领域知识的技术工程师</strong>——经验随时间复利",
+      "i18n-row-accel": "自我加速",
+      "i18n-row-accel-scale": "无——标注不会让标注更快",
+      "i18n-row-accel-keplore": "<strong>有</strong>——Keplore自己的Skills加速构建新Skills <span class=\"win-badge\" id=\"i18n-win4\">更好</span>",
+      "i18n-row-moat": "护城河",
+      "i18n-row-moat-scale": "数据收集的规模和速度",
+      "i18n-row-moat-keplore": "<strong>Skills库+经生产验证的专业知识</strong>——没有工厂准入无法复制",
+      "i18n-insight-label": "核心洞察",
+      "i18n-insight-p": "Scale AI的训练数据被消耗一次。Keplore的Skills被无限次调用。为中国制造商今天构建的校准Skill，将在数百台机器上运行数年。每次调用都是收入。每次调用也是验证——让这个Skill对下一个客户更有价值。",
+      "i18n-section-phases": "商业模式",
+      "i18n-phases-h2": "两个阶段。<br>一个<span class=\"accent\">复利资产。</span>",
+      "i18n-phases-intro": "交付工作与数据业务并不矛盾。第一阶段资助并构建第二阶段。每个项目都是对Skills库的投资。",
+      "i18n-phase1-num": "第一阶段 — 当下",
+      "i18n-phase1-h3": "交付解决方案",
+      "i18n-phase1-p1": "直接与工业客户合作，构建和部署AI解决方案。收取交付费用——但利润不是目标。目标是构建一个不断复利的验证Skills库。",
+      "i18n-phase1-p2": "因为Keplore不为交付利润优化，它可以承接竞争对手无力承接的项目，进入其他人不愿涉足的垂直领域，并复用之前项目的Skills来比任何从零开始的人都跑得更快。",
+      "i18n-phase1-insight": "当前客户：中国制造商（磁性缺陷检测）、吉利汽车研发、爱达荷州机器人系统集成商。",
+      "i18n-phase2-num": "第二阶段 — Skills库变现",
+      "i18n-phase2-h3": "销售Skills",
+      "i18n-phase2-p1": "一旦Skills库具备深度和广度，销售访问权——订阅制、按Skills授权或按领域打包。届时，服务额外客户的边际成本接近零。",
+      "i18n-phase2-p2": "第一阶段的客户已经为资产买单。第二阶段是业务从服务公司转变为软件公司的时刻。其他AI公司——包括Aitomatic等轻任务平台——可以购买Keplore的Skills来增加执行能力，而无需自己从头构建领域专业知识。",
+      "i18n-phase2-insight": "Skills库成为基础设施。Keplore成为工业AI执行的数据层。",
+      "i18n-section-kepler": "为什么叫"Keplore"",
+      "i18n-kepler-h2": "有根基的知识<br>才能做出<span class=\"accent\">可靠预测。</span>",
+      "i18n-kepler-intro": "这个名字是对约翰内斯·开普勒的致敬——他证明了正是精确的观测数据，而非纯粹推理，让科学定律真正有效。",
+      "i18n-kepler-col1-h3": "历史的平行",
+      "i18n-kepler-col1-p1": "开普勒利用第谷·布拉赫收集的精确观测数据推导出行星运动三定律——第谷花费数十年建造精密仪器，以前所未有的精度测量行星位置。",
+      "i18n-kepler-col1-p2": "在开普勒之前，天文学依赖纯几何推理（托勒密的本轮、哥白尼的圆周）。逻辑自洽，但错误。因为没有以精确测量为基础。",
+      "i18n-kepler-col1-p3": "开普勒定律有效——能预测行星的位置——是因为它们从真实数据中推导，受真实观测约束。数据是决定性的。",
+      "i18n-kepler-col2-h3": "Keplore的类比",
+      "i18n-analogy-k1": "第谷·布拉赫",
+      "i18n-analogy-v1": "Keplore在工厂的技术工程师",
+      "i18n-analogy-k2": "天文观测仪器",
+      "i18n-analogy-v2": "Skill包（代码+数据+接口）",
+      "i18n-analogy-k3": "精确观测数据",
+      "i18n-analogy-v3": "经专家验证、生产验证的Skills",
+      "i18n-analogy-k4": "纯几何推理",
+      "i18n-analogy-v4": "通用AI模式匹配",
+      "i18n-analogy-k5": "开普勒定律",
+      "i18n-analogy-v5": "可靠的工业AI执行",
+      "i18n-analogy-k6": "预测行星位置",
+      "i18n-analogy-v6": "构建在生产中运行的系统",
+      "i18n-kepler-col2-lastp": "仅靠通用AI推理——对公开数据的模式匹配——产生的输出听起来合理，但在工业生产中无法被信任。Keplore的Skills是让智能体可靠的基础。",
+      "i18n-footer-name": "Keplore Expertize",
+      "i18n-footer-p": "真正执行的工业AI。以Skills为基础。以领域专业知识为根基。"
+    }
+  };
+
+  // Elements that contain HTML tags and need innerHTML, not textContent
+  const HTML_ELEMENTS = new Set([
+    "i18n-hero-h1",
+    "i18n-problem-h2",
+    "i18n-why-h2",
+    "i18n-data-h2",
+    "i18n-vs-h2",
+    "i18n-phases-h2",
+    "i18n-kepler-h2",
+    "i18n-shift-old-value",
+    "i18n-shift-new-value",
+    "i18n-fly1",
+    "i18n-fly2",
+    "i18n-fly3",
+    "i18n-fly4",
+    "i18n-fly5",
+    "i18n-row-product-keplore",
+    "i18n-row-usedfor-keplore",
+    "i18n-row-consumption-keplore",
+    "i18n-row-value-keplore",
+    "i18n-row-biz-keplore",
+    "i18n-row-workforce-keplore",
+    "i18n-row-accel-keplore",
+    "i18n-row-moat-keplore",
+    "i18n-example-p",
+    "i18n-skill-md-sub",
+    "i18n-scripts-sub",
+    "i18n-data-sub",
+    "i18n-light-li2",
+    "i18n-heavy-h3",
+    "i18n-heavy-li2"
+  ]);
+
+  let currentLang = 'en';
+
+  function applyLang(lang) {
+    const strings = STRINGS[lang];
+    document.documentElement.lang = lang;
+    document.title = strings.title;
+
+    for (const [id, value] of Object.entries(strings)) {
+      if (id === 'title') continue;
+      const el = document.getElementById(id);
+      if (!el) continue;
+      if (HTML_ELEMENTS.has(id)) {
+        el.innerHTML = value;
+      } else {
+        el.innerHTML = value;
+      }
+    }
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    applyLang(currentLang);
+  }
+
+  // Initialize with English (default)
+  applyLang('en');
+</script>
 
 </body>
 </html>
