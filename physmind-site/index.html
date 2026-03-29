@@ -155,20 +155,24 @@
       font-family: 'SF Mono','Fira Code','Consolas',monospace; letter-spacing: 0.3px;
     }
     .terminal-body {
-      padding: 20px 22px; min-height: 300px; max-height: 340px;
+      padding: 20px 22px; min-height: 340px; max-height: 380px;
       overflow: hidden;
       font-family: 'SF Mono','Fira Code','Consolas',monospace;
       font-size: 12.5px; line-height: 1.85;
     }
     .t-line { white-space: pre; }
-    .t-line.th  { color: #7c9fff; font-weight: 700; }
-    .t-line.def { color: rgba(160,165,210,0.65); }
-    .t-line.sep { color: rgba(79,127,255,0.35); }
-    .t-line.stp { color: var(--muted2); }
-    .t-line.prg { color: var(--teal); }
-    .t-line.ok  { color: var(--green); }
-    .t-line.fin { color: var(--green); font-weight: 700; font-size: 13.5px; }
-    .t-line.nte { color: var(--muted); }
+    .t-line.th   { color: #7c9fff; font-weight: 700; }
+    .t-line.def  { color: rgba(160,165,210,0.65); }
+    .t-line.sep  { color: rgba(79,127,255,0.3); }
+    .t-line.stp  { color: var(--muted2); }
+    .t-line.prg  { color: var(--teal); }
+    .t-line.ok   { color: var(--green); }
+    .t-line.fin  { color: var(--green); font-weight: 700; font-size: 13.5px; }
+    .t-line.nte  { color: var(--muted); }
+    .t-line.phys { color: #f0c060; font-style: italic; }
+    .t-line.bar  { color: rgba(14,165,199,0.8); }
+    .t-line.warn { color: #f97316; }
+    .t-line.case { color: rgba(124,92,252,0.7); font-size: 11px; letter-spacing: 1px; }
     .t-cursor {
       display: inline-block; width: 7px; height: 13px;
       background: var(--accent); vertical-align: middle; margin-left: 2px;
@@ -1549,38 +1553,76 @@
     requestAnimationFrame(drawCanvas);
   })();
 
-  // ── TERMINAL TYPEWRITER ──
-  const LINES = [
-    { t: '> PhysMind Agent  ·  PhysicalFlow Runtime', c: 'th' },
-    { t: '> Indexing 847 expert skills...  ready', c: 'def' },
-    { t: '', c: 'def' },
-    { t: '  ── New Task ────────────────────────────', c: 'sep' },
-    { t: '  Domain  : Magnetic Defect Detection', c: 'def' },
-    { t: '  Machine : A7-2  ·  China Manufacturer', c: 'def' },
-    { t: '', c: 'def' },
-    { t: '  [1/4] Invoking skill: threshold-tuning', c: 'stp' },
-    { t: '  [2/4] Running: scripts/tune.py', c: 'stp' },
-    { t: '         91.3%  ──▶  95.6%  ──▶  99.1%', c: 'prg' },
-    { t: '  [3/4] Validation: PASSED  ✓', c: 'ok' },
-    { t: '  [4/4] Deploying config to PLC-14...', c: 'stp' },
-    { t: '', c: 'def' },
-    { t: '  ✓  Complete  ·  4m 12s', c: 'fin' },
-    { t: '     (vs ~3.5 hrs manual baseline)', c: 'nte' },
+  // ── TERMINAL TYPEWRITER  (2 cases, alternating) ──
+  const CASES = [
+    {
+      lines: [
+        { t: '> PhysMind Agent  ·  PhysicalFlow Runtime', c: 'th' },
+        { t: '> 847 expert skills indexed  ·  ready', c: 'def' },
+        { t: '', c: 'def' },
+        { t: '  CASE 1 / 2  ·  GEELY AUTOMOTIVE R&D', c: 'case' },
+        { t: '  ── EV Battery Cell Inspection ──────────', c: 'sep' },
+        { t: '  Task   : Cell stack thermal analysis', c: 'def' },
+        { t: '  System : 96-cell NMC pack  ·  Line 3', c: 'def' },
+        { t: '', c: 'def' },
+        { t: '  [Physics]  ∂T/∂t = α∇²T + Q/ρcₚ', c: 'phys' },
+        { t: '  Cell 01:  23.1°C  ████████░░  nominal', c: 'bar' },
+        { t: '  Cell 07:  31.4°C  ██████████  ⚠ hot', c: 'warn' },
+        { t: '  Cell 12:  22.8°C  ████████░░  nominal', c: 'bar' },
+        { t: '  Cell 19:  33.7°C  ███████████ ⚠ hot', c: 'warn' },
+        { t: '', c: 'def' },
+        { t: '  [1/3] Anomaly: 2 cells flagged', c: 'stp' },
+        { t: '  [2/3] Vision calibration: DONE  ✓', c: 'ok' },
+        { t: '  [3/3] Report → Geely R&D: SENT  ✓', c: 'ok' },
+        { t: '', c: 'def' },
+        { t: '  ✓  Complete  ·  8m 34s', c: 'fin' },
+        { t: '     (vs ~6 hrs manual inspection)', c: 'nte' },
+      ],
+      delays: [0,700,200,250,300,300,300,200,700,600,500,500,500,200,700,800,700,300,900,400]
+    },
+    {
+      lines: [
+        { t: '> PhysMind Agent  ·  PhysicalFlow Runtime', c: 'th' },
+        { t: '> 847 expert skills indexed  ·  ready', c: 'def' },
+        { t: '', c: 'def' },
+        { t: '  CASE 2 / 2  ·  DESIGN FOR MAKING', c: 'case' },
+        { t: '  ── 6-DOF Robot Arm Calibration ─────────', c: 'sep' },
+        { t: '  Task   : Kinematic calibration  ·  Cell C3', c: 'def' },
+        { t: '  System : Welding robot  ·  URDF v2.4', c: 'def' },
+        { t: '', c: 'def' },
+        { t: '  [Kinematics]  T = ∏ᵢ Rot(zᵢ,θᵢ)·Trans(dᵢ)', c: 'phys' },
+        { t: '  θ₁:  12.4° → 14.2°  ███████░  Δ+1.8°  ✓', c: 'bar' },
+        { t: '  θ₂: -23.1° → -21.8° ███████░  Δ+1.3°  ✓', c: 'bar' },
+        { t: '  θ₃:  45.0° → 45.6°  ████████  Δ+0.6°  ✓', c: 'bar' },
+        { t: '  θ₄:   0.0° →  0.0°  ████████  nominal ✓', c: 'bar' },
+        { t: '', c: 'def' },
+        { t: '  [1/4] Forward kinematics: solved', c: 'stp' },
+        { t: '  [2/4] Collision check: CLEAR  ✓', c: 'ok' },
+        { t: '  [3/4] Trajectory optimized  ✓', c: 'ok' },
+        { t: '  [4/4] PLC upload: SUCCESS  ✓', c: 'ok' },
+        { t: '', c: 'def' },
+        { t: '  ✓  Complete  ·  2m 47s', c: 'fin' },
+        { t: '     (vs ~4 hrs manual calibration)', c: 'nte' },
+      ],
+      delays: [0,700,200,250,300,300,300,200,700,500,500,500,500,200,600,700,700,700,300,900,400]
+    }
   ];
 
-  const DELAYS = [0,700,200,300,350,350,200,600,700,1400,1100,800,500,900,350];
   const termBody = document.getElementById('terminal-body');
+  let caseIdx = 0;
 
   function runTerminal() {
+    const { lines, delays } = CASES[caseIdx % CASES.length];
+    caseIdx++;
     termBody.innerHTML = '';
     let idx = 0;
     function next() {
-      if (idx >= LINES.length) { setTimeout(runTerminal, 3500); return; }
-      const { t, c } = LINES[idx];
+      if (idx >= lines.length) { setTimeout(runTerminal, 3000); return; }
+      const { t, c } = lines[idx];
       const div = document.createElement('div');
       div.className = 't-line ' + c;
       div.textContent = t;
-      if (idx === LINES.length - 1) {
+      if (idx === lines.length - 1) {
         const cur = document.createElement('span');
         cur.className = 't-cursor';
         div.appendChild(cur);
@@ -1588,9 +1630,9 @@
       termBody.appendChild(div);
       termBody.scrollTop = termBody.scrollHeight;
       idx++;
-      setTimeout(next, DELAYS[idx] || 300);
+      setTimeout(next, delays[idx] || 300);
     }
-    setTimeout(next, 500);
+    setTimeout(next, 400);
   }
   runTerminal();
 
