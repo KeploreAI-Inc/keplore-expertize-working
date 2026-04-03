@@ -616,6 +616,57 @@
     }
     .github-btn:hover { border-color: var(--green); }
 
+    /* ── INSTALLATION ── */
+    .install-hero {
+      margin-top: 48px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .install-download {
+      display: flex; align-items: center; gap: 20px;
+      background: var(--surface2); border: 1px solid var(--border2);
+      border-radius: 14px; padding: 24px 28px;
+    }
+    .install-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: rgba(79,127,255,0.1); border: 1px solid rgba(79,127,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); flex-shrink: 0;
+    }
+    .install-info { flex: 1; }
+    .install-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .install-meta { font-size: 13px; color: var(--muted); }
+    .install-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 12px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: opacity 0.2s; flex-shrink: 0;
+    }
+    .install-btn:hover { opacity: 0.85; }
+    .install-steps {
+      display: flex; flex-direction: column; gap: 0;
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: 14px; overflow: hidden;
+    }
+    .install-step {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 20px 28px; border-bottom: 1px solid var(--border);
+    }
+    .install-step:last-child { border-bottom: none; }
+    .install-step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(79,127,255,0.12); border: 1px solid rgba(79,127,255,0.25);
+      color: var(--accent); font-size: 13px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .install-step-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .install-step-desc { font-size: 13px; color: var(--muted2); line-height: 1.6; }
+    .install-step-desc code {
+      background: var(--surface3); border: 1px solid var(--border2);
+      border-radius: 4px; padding: 1px 6px; font-family: monospace; font-size: 12px;
+    }
+
     /* ── TRACTION ── */
     .traction-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -875,6 +926,7 @@
     <a href="#architecture">Framework</a>
     <a href="#traction">Traction</a>
     <a href="#revenue">Biz Model</a>
+    <a href="/install.html" class="nav-cta">Install</a>
     <a href="#contact" class="nav-cta">Talk to Us</a>
   </div>
 </nav>
