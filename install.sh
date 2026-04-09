@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-REPO="ultraworkers/claw-code"
+BASE_URL="https://physmind.ai"
 BIN="physmind"
 INSTALL_DIR="/usr/local/bin"
 
@@ -25,12 +25,12 @@ case "$OS" in
     ;;
   *)
     echo "Unsupported OS: $OS"
-    echo "Windows users: download physmind-windows-x86_64.exe from https://physmind.ai/install"
+    echo "Windows: download https://physmind.ai/physmind-windows-x86_64.exe"
     exit 1
     ;;
 esac
 
-URL="https://github.com/$REPO/releases/latest/download/$ASSET"
+URL="$BASE_URL/$ASSET"
 
 echo "Downloading PhysMind CLI..."
 curl -fsSL "$URL" -o "/tmp/$BIN"
@@ -43,5 +43,4 @@ else
 fi
 
 echo ""
-echo "PhysMind CLI installed successfully!"
-echo "Run: physmind"
+echo "PhysMind CLI installed! Run: physmind"
